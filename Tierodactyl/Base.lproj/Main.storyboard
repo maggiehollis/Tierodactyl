@@ -27,7 +27,7 @@
         <scene sceneID="BFC-Uf-Mat">
             <objects>
                 <viewController id="7Zg-2L-s0J" customClass="OriginalViewController" customModule="Tierodactyl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sY6-B5-swD" customClass="Original">
+                    <view key="view" contentMode="scaleToFill" id="sY6-B5-swD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
