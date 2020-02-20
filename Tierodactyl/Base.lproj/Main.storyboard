@@ -142,10 +142,13 @@
                         <viewLayoutGuide key="safeArea" id="RLs-ZA-U55"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Ri-Ki-c4C"/>
+                    <connections>
+                        <segue destination="tLw-76-hcr" kind="show" identifier="toTier" id="tKQ-hN-KbQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dku-3I-pUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3691" y="37"/>
+            <point key="canvasLocation" x="3604" y="37"/>
         </scene>
         <!--Tier View Controller-->
         <scene sceneID="skf-RV-BI3">
@@ -157,6 +160,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="IDw-dV-erG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uEm-cU-eHO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oao-ud-tUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
