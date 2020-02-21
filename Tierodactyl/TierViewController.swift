@@ -9,11 +9,24 @@
 import UIKit
 
 class TierViewController: UIViewController {
-
+   
+   var views = [CollectionViews]()
+    
+    @IBAction func addView(_ sender: Any) {
+        self.views.append(CollectionViews(coder: NSCoder.init())!)
+        view.addSubview(views.last!.myCollectionView)
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //initial collectionView
+        views[0] = CollectionViews(coder: NSCoder.init())!
+    
+        
+        
+        
+        
     }
     
 
