@@ -42,12 +42,26 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
          
      }
+    
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if username.isFirstResponder {
+            emailAddress.becomeFirstResponder()
+            
+        }
+        else if emailAddress.isFirstResponder {
+            password.becomeFirstResponder()
+        }
+        else {
+            password.resignFirstResponder()
+            signupButtonO.isEnabled = true
+        }
+       return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        username.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
