@@ -8,8 +8,25 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController {
+class HomeScreenViewController: UIViewController /*, UITableViewDelegate, UITableViewDataSource*/ {
+   /* func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    */
 
+    
+    let table = UITableView();
+    
+    func setUpTable(){
+        view.addSubview(table);
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
