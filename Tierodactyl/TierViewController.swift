@@ -8,26 +8,45 @@
 
 import UIKit
 
-class TierViewController: UIViewController {
+class TierViewController: UIViewController{//, UICollectionViewDelegate, UICollectionViewDataSource {
    
-   var views = [CollectionViews]()
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath)
+//               myCell.backgroundColor = UIColor.blue
+//               return myCell
+//    }
+    
+    var first : UICollectionView?
     
     @IBAction func addView(_ sender: Any) {
-        self.views.append(CollectionViews())
-        view.addSubview(views.last!.myCollectionView)
+        
     }
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //initial collectionView
-        views[0] = CollectionViews()
+      // let layout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+//        layout.itemSize = CGSize(width: 111, height: 100)
+//        layout.scrollDirection = .horizontal
         
-        for i in views{
-            view.addSubview(i.myCollectionView)
-        }
+        first! = UICollectionView(frame: self.view.frame, collectionViewLayout:  UICollectionViewFlowLayout())
+//        first.delegate   = self
+//        first.dataSource = self
+ //       first.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+ //       first.backgroundColor = UIColor.white
         
-        ///how do i reload a view????????
+        first!.translatesAutoresizingMaskIntoConstraints = false
+        first!.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        first!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        first!.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 0).isActive = true
+        first!.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        view.addSubview(first!)
         
     }
     
