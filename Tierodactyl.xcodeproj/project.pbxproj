@@ -22,6 +22,7 @@
 		5F8658CE23FC5D4C00D3E997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8658CC23FC5D4C00D3E997 /* LaunchScreen.storyboard */; };
 		5F8658D923FC5D4C00D3E997 /* TierodactylTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658D823FC5D4C00D3E997 /* TierodactylTests.swift */; };
 		5F8658E423FC5D4C00D3E997 /* TierodactylUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658E323FC5D4C00D3E997 /* TierodactylUITests.swift */; };
+		62CBD902B4335259A2946999 /* Pods_Tierodactyl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129782A1CB0C273945C11C1 /* Pods_Tierodactyl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		03F6280323FDDEDB00EBBF94 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		03F6280523FDDF6500EBBF94 /* TierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierViewController.swift; sourceTree = "<group>"; };
 		03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1FD06A0A7B9DC38B88626502 /* Pods-Tierodactyl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.debug.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.debug.xcconfig"; sourceTree = "<group>"; };
+		2F470EF998B73D8B3C4BF13F /* Pods-Tierodactyl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.release.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.release.xcconfig"; sourceTree = "<group>"; };
 		5F0447D423FF652100E6D897 /* CollectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViews.swift; sourceTree = "<group>"; };
 		5F8658BE23FC5D4A00D3E997 /* Tierodactyl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tierodactyl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8658C123FC5D4A00D3E997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		5F8658DF23FC5D4C00D3E997 /* TierodactylUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TierodactylUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8658E323FC5D4C00D3E997 /* TierodactylUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierodactylUITests.swift; sourceTree = "<group>"; };
 		5F8658E523FC5D4C00D3E997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C129782A1CB0C273945C11C1 /* Pods_Tierodactyl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tierodactyl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CBD902B4335259A2946999 /* Pods_Tierodactyl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6A59DEC838324404233C72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1FD06A0A7B9DC38B88626502 /* Pods-Tierodactyl.debug.xcconfig */,
+				2F470EF998B73D8B3C4BF13F /* Pods-Tierodactyl.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5F8658B523FC5D4A00D3E997 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +112,8 @@
 				5F8658D723FC5D4C00D3E997 /* TierodactylTests */,
 				5F8658E223FC5D4C00D3E997 /* TierodactylUITests */,
 				5F8658BF23FC5D4A00D3E997 /* Products */,
+				0A6A59DEC838324404233C72 /* Pods */,
+				C24FED2B8C3209DE1D976051 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +166,14 @@
 			path = TierodactylUITests;
 			sourceTree = "<group>";
 		};
+		C24FED2B8C3209DE1D976051 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C129782A1CB0C273945C11C1 /* Pods_Tierodactyl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8658E823FC5D4C00D3E997 /* Build configuration list for PBXNativeTarget "Tierodactyl" */;
 			buildPhases = (
+				A43EB5E47BF00842E2B6633C /* [CP] Check Pods Manifest.lock */,
 				5F8658BA23FC5D4A00D3E997 /* Sources */,
 				5F8658BB23FC5D4A00D3E997 /* Frameworks */,
 				5F8658BC23FC5D4A00D3E997 /* Resources */,
+				4B83DE32FD95D6A0AEFB6E0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +301,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B83DE32FD95D6A0AEFB6E0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A43EB5E47BF00842E2B6633C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tierodactyl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F8658BA23FC5D4A00D3E997 /* Sources */ = {
@@ -460,6 +529,7 @@
 		};
 		5F8658E923FC5D4C00D3E997 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FD06A0A7B9DC38B88626502 /* Pods-Tierodactyl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +548,7 @@
 		};
 		5F8658EA23FC5D4C00D3E997 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F470EF998B73D8B3C4BF13F /* Pods-Tierodactyl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

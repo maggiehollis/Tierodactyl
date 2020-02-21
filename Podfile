@@ -6,7 +6,7 @@ target 'Tierodactyl' do
   use_frameworks!
 
   # Pods for Tierodactyl
-
+	pod 'Firebase'
 	pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'

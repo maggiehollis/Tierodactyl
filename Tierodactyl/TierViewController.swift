@@ -34,7 +34,7 @@ class TierViewController: UIViewController{//, UICollectionViewDelegate, UIColle
 //        layout.itemSize = CGSize(width: 111, height: 100)
 //        layout.scrollDirection = .horizontal
         
-        first! = UICollectionView(frame: self.view.frame, collectionViewLayout:  UICollectionViewFlowLayout())
+        first = UICollectionView(frame: self.view.frame, collectionViewLayout:  UICollectionViewFlowLayout())
 //        first.delegate   = self
 //        first.dataSource = self
  //       first.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
