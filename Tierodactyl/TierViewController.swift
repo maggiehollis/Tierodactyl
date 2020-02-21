@@ -22,10 +22,12 @@ class TierViewController: UIViewController {
 
         //initial collectionView
         views[0] = CollectionViews()
-    
         
+        for i in views{
+            view.addSubview(i.myCollectionView)
+        }
         
-        
+        ///how do i reload a view????????
         
     }
     

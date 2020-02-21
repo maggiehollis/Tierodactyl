@@ -12,6 +12,7 @@ class CollectionViews: UIViewController, UICollectionViewDataSource, UICollectio
     init() {
         self.myCollectionView = UICollectionView()
         super.init(nibName: nil, bundle: nil)
+        self.setLayouts()
     }
     
     required init?(coder: NSCoder) {
@@ -26,40 +27,27 @@ class CollectionViews: UIViewController, UICollectionViewDataSource, UICollectio
         myCell.backgroundColor = UIColor.blue
         return myCell
     }
+    
         
-//    override func viewWillAppear(_ animated: Bool) {
-//            super.viewWillAppear(animated)
-//
-//        let layout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-//        layout.itemSize = CGSize.init(width: view.frame.width, height: 250)
-//        layout.scrollDirection = .horizontal
-//
-//        myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-//        myCollectionView.delegate = self
-//        myCollectionView.dataSource = self
-//        myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-//        myCollectionView.backgroundColor = UIColor.white
-//
-//        self.view.addSubview(myCollectionView)
-//
-//        }
-//
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setLayouts(){
        
         let layout = UICollectionViewFlowLayout()
-               layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-               layout.itemSize = CGSize.init(width: view.frame.width, height: 250)
-               layout.scrollDirection = .horizontal
-               
-               myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-               myCollectionView.delegate = self
-               myCollectionView.dataSource = self
-               myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-               myCollectionView.backgroundColor = UIColor.white
-               
-               self.view.addSubview(myCollectionView)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize.init(width: view.frame.width, height: 250)
+        layout.scrollDirection = .horizontal
+
+        myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        myCollectionView.delegate = self
+        myCollectionView.dataSource = self
+        myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        myCollectionView.backgroundColor = UIColor.white
+        
+        //add constraints!
+//        myCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        myCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+//        myCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+//        myCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 0).isActive = true
+//        myCollectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
         
