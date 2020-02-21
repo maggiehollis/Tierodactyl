@@ -24,8 +24,9 @@ class TierViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var first : UICollectionView?
     
     @IBAction func addView(_ sender: Any) {
-        
+        var hi
     }
+    
     
     func setUpView(_: UICollectionView?){
        let layout = UICollectionViewFlowLayout()
