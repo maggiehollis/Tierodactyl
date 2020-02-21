@@ -13,7 +13,7 @@ class TierViewController: UIViewController {
    var views = [CollectionViews]()
     
     @IBAction func addView(_ sender: Any) {
-        self.views.append(CollectionViews(coder: NSCoder.init())!)
+        self.views.append(CollectionViews())
         view.addSubview(views.last!.myCollectionView)
     }
    
@@ -21,7 +21,7 @@ class TierViewController: UIViewController {
         super.viewDidLoad()
 
         //initial collectionView
-        views[0] = CollectionViews(coder: NSCoder.init())!
+        views[0] = CollectionViews()
     
         
         
