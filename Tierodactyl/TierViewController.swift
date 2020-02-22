@@ -10,6 +10,10 @@ import UIKit
 
 class TierViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
+    //inital so not nil
+    
+    var views : [UICollectionView]? = []
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
@@ -17,55 +21,48 @@ class TierViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath)
-               myCell.backgroundColor = UIColor.blue
-               return myCell
+        myCell.backgroundColor = UIColor.blue
+        myCell.layer.cornerRadius = 10
+        return myCell
     }
-    
-    var first : UICollectionView?
     
     @IBAction func addView(_ sender: Any) {
-        var hi = 5
+       
     }
     
     
-    func setUpView(_: UICollectionView?){
+    func setUpView(){
+        
        let layout = UICollectionViewFlowLayout()
-      // layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+       layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
        layout.itemSize = CGSize(width: 100, height: 100)
        layout.scrollDirection = .horizontal
         
-        first = UICollectionView(frame: self.view.frame, collectionViewLayout:  layout)
-        first!.delegate   = self
-        first!.dataSource = self
-        first!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        first!.backgroundColor = UIColor.white
-        
-        
-        first!.translatesAutoresizingMaskIntoConstraints = false
-        first!.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        first!.widthAnchor.constraint(equalToConstant: 400).isActive = true
-        
-      
-        
-        view.addSubview(first!)
+            if views != nil{
+                views!.append(UICollectionView(frame: self.view.frame, collectionViewLayout:  layout))
+               
+                print(views!.count)
+                
+                views?.last?.delegate = self
+                views?.last?.dataSource = self
+                views?.last?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+                views?.last?.backgroundColor = UIColor.white
+                
+                views?.last?.translatesAutoresizingMaskIntoConstraints = false
+                views?.last?.heightAnchor.constraint(equalToConstant: 150).isActive = true
+                views?.last?.widthAnchor.constraint(equalToConstant: 411).isActive = true
+                
+                view.addSubview(views!.last!)
+        }
     }
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        setUpView(first)
+        setUpView()
+        
+        setUpView()
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        
 }
+
