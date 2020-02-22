@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 @UIApplicationMain
-f ewclass AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
