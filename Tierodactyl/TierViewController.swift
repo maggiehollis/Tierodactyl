@@ -25,6 +25,14 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
         }
     }
     
+    //when green section of cell is clicked a collection view cell will be added
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if cells != nil{
+            cells?[indexPath.row].counter+=1
+            cells?[indexPath.row].collectionView.reloadData()
+        }
+    }
+    
     //sets row height for each table view row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0;//Choose your custom row height
@@ -33,10 +41,6 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     //creates a row for the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //basically makes even rows green and odd system green
-        if cells?[indexPath.row].isSelected == true {
-            cells?[indexPath.row].counter+=1
-            self.tableView.reloadData()
-        }
         
         if cells != nil && indexPath.row%2==0 && cells!.count>0{
             cells?[indexPath.row].backgroundColor = .systemGreen
@@ -64,6 +68,8 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     //also has no current function
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.allowsSelection = true
         
     }
         

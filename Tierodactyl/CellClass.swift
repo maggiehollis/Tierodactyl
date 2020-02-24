@@ -42,9 +42,10 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
-        collectionView.frame = CGRect(x: 0, y: 0, width: 414 , height: 70)
+        collectionView.frame = CGRect(x: 0, y: 0, width: 314 , height: 70)
         //how do i get the width? like when the screen is a different size?
-        collectionView.backgroundColor = UIColor.clear
+        collectionView.backgroundColor = .white
+        collectionView.allowsSelection = true
         
         self.addSubview(collectionView)
     }
@@ -76,6 +77,6 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     //also irrelevant
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-                
+           
     }
 }
