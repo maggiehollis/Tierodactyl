@@ -148,28 +148,6 @@
             <point key="canvasLocation" x="3604" y="37"/>
         </scene>
         <!--Tier View Controller-->
-        <scene sceneID="skf-RV-BI3">
-            <objects>
-                <viewController id="tLw-76-hcr" customClass="TierViewController" customModule="Tierodactyl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oc7-jL-9oe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="IDw-dV-erG"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="uEm-cU-eHO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nhW-bI-xoI">
-                            <connections>
-                                <action selector="addView:" destination="tLw-76-hcr" id="CnM-SK-MVk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oao-ud-tUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6106" y="-550"/>
-        </scene>
-        <!--Tier View Controller-->
         <scene sceneID="eoP-oj-UUx">
             <objects>
                 <tableViewController id="f3d-Gt-KCw" customClass="TierViewController" customModule="Tierodactyl" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,8 +155,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6bD-2m-0C7">
+                            <rect key="frame" x="0.0" y="184" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="add:" destination="f3d-Gt-KCw" eventType="touchUpInside" id="ncM-Ad-kzf"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="91Q-fb-wek">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="128" id="91Q-fb-wek">
                                 <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="91Q-fb-wek" id="hTp-7h-PU0" customClass="CellClass" customModule="Tierodactyl" customModuleProvider="target">

@@ -9,7 +9,47 @@
 import UIKit
 
 class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var collectionView: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath as IndexPath) as! UICollectionViewCell
+        cell.layer.cornerRadius = 10
+        cell.backgroundColor = .black
 
+        return cell
+    }
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+
+        collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.backgroundColor = UIColor.clear
+
+        self.addSubview(collectionView)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+
+    // MARK: UICollectionViewDataSource
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -21,54 +61,5 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
                 
-            //setUpView()
-        
-        
-               
-        // Configure the view for the selected state
     }
-    
-    var views : [UICollectionView]? = []
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath)
-            myCell.backgroundColor = .systemGreen
-            myCell.layer.cornerRadius = 10
-            return myCell
-       
-    }
-    
-    func setUpView(){
-           
-          let layout = UICollectionViewFlowLayout()
-          layout.sectionInset = UIEdgeInsets(top: 40, left: 10, bottom: 20, right: 10)
-          layout.itemSize = CGSize(width: 100, height: 100)
-          layout.scrollDirection = .horizontal
-           
-               if views != nil{
-                   views!.append(UICollectionView(frame: self.frame, collectionViewLayout:  layout))
-                   
-                   views?.last?.delegate = self
-                   views?.last?.dataSource = self
-                   
-                   views?.last?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-                   //maybe because all cells in each collection view have the same reuse id?
-                   
-                   views?.last?.backgroundColor = UIColor.white
-                   
-//                   views?.last?.translatesAutoresizingMaskIntoConstraints = false
-//                   views?.last?.heightAnchor.constraint(equalToConstant: 160).isActive = true
-//                   views?.last?.widthAnchor.constraint(equalToConstant: 410).isActive = true
-                   
-                self.addSubview(views!.last!)
-                   
-           }
-       }
-
 }

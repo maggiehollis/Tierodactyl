@@ -11,72 +11,55 @@ import UIKit
 
 class TierViewController: UITableViewController{//, UICollectionViewDelegate, UICollectionViewDataSource{
 
-//    var views : [UICollectionView]? = []
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 10
-//    }
-//    
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath)
-//        myCell.backgroundColor = .systemGreen
-//            myCell.layer.cornerRadius = 10
-//            return myCell
-//       
-//    }
+    var counter = 1
+    var cells : [CellClass]? = []
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let myCell = CellClass()
-
-        myCell.translatesAutoresizingMaskIntoConstraints = false
-        myCell.heightAnchor.constraint(equalToConstant: 200).isActive = true
-    
+        if cells != nil && indexPath.row%2==0{
+            cells?[indexPath.row].backgroundColor = .systemGreen
+            return cells![indexPath.row]
+        }
+        else if cells != nil{
+            cells?[indexPath.row].backgroundColor = .green
+            return cells![indexPath.row]
+        }
+        return CellClass()
         
-        return myCell
+    
+        //differentiate based off of what index path each cell is!
     }
     
+    //always one
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let counter = cells?.count else {return 1}
+        if counter == 0 {
+            return 1
+        }
+        return counter
+    }
+    
+    //change to create different number of rows
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    @IBAction func add(_ sender: Any) {
+           counter+=1
+        //numberOfSections(in: self as! UITableView)
+    }
+
     
-    
-//    func setUpView(){
-//        
-//       let layout = UICollectionViewFlowLayout()
-//       layout.sectionInset = UIEdgeInsets(top: 50, left: 10, bottom: 10, right: 10)
-//       layout.itemSize = CGSize(width: 100, height: 100)
-//       layout.scrollDirection = .horizontal
-//        
-//            if views != nil{
-//                views!.append(UICollectionView(frame: self.view.frame, collectionViewLayout:  layout))
-//                
-//                views?.last?.delegate = self
-//                views?.last?.dataSource = self
-//                
-//                views?.last?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-//                //maybe because all cells in each collection view have the same reuse id?
-//                
-//                views?.last?.backgroundColor = UIColor.white
-//                
-//                views?.last?.translatesAutoresizingMaskIntoConstraints = false
-//                views?.last?.heightAnchor.constraint(equalToConstant: 160).isActive = true
-//                views?.last?.widthAnchor.constraint(equalToConstant: 410).isActive = true
-//                
-//               // view.addSubview(views!.last!)
-//                
-//        }
-//    }
+    //if someone wants to add a view we add one to numberOfSections
         
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
+        if cells != nil{
+            for _ in 1...10{
+                cells?.append(CellClass())
+            }
+        }
         
-           // setUpView()
-           // setUpView()
     }
     
         
