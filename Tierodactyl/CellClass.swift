@@ -12,6 +12,7 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     
     //the collection view that will be in each tableview row
     var collectionView: UICollectionView!
+    var counter = 0
     
     //created individual cell for the collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,7 +63,7 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return counter
     }
     
     //irrelevant

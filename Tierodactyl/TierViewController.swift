@@ -33,6 +33,11 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     //creates a row for the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //basically makes even rows green and odd system green
+        if cells?[indexPath.row].isSelected == true {
+            cells?[indexPath.row].counter+=1
+            self.tableView.reloadData()
+        }
+        
         if cells != nil && indexPath.row%2==0 && cells!.count>0{
             cells?[indexPath.row].backgroundColor = .systemGreen
             return cells![indexPath.row]
