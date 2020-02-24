@@ -8,27 +8,51 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController /*, UITableViewDelegate, UITableViewDataSource*/ {
-   /* func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+   
+    //all the lists
+    var lists : [UITableViewCell]? = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        guard var count = lists?.count else {return 1}
+//        return count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+//        if lists != nil{
+//            return lists![indexPath.row]
+//        }
+        
+        var cell = HomeScreenTableViewCell()
+        
+        cell.textLabel?.text = "List 1"
+        return cell
     }
-    */
-
     
-    let table = UITableView();
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if lists != nil{
+//            lists![indexPath.row]
+//        }
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
     
     func setUpTable(){
-        view.addSubview(table);
+        //var tableView = UITableView()
+               tableView.delegate = self
+               tableView.dataSource = self
+    
+        //tableView.register(HomeScreenTableViewCell(), forCellReuseIdentifier: "MyCell")
         
+        view.addSubview(tableView);
+
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            setUpTable()
 
         // Do any additional setup after loading the view.
     }

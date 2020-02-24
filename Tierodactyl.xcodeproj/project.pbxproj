@@ -13,6 +13,7 @@
 		03F6280423FDDEDB00EBBF94 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280323FDDEDB00EBBF94 /* HomeScreenViewController.swift */; };
 		03F6280623FDDF6500EBBF94 /* TierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280523FDDF6500EBBF94 /* TierViewController.swift */; };
 		03F6280823FDDF8F00EBBF94 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */; };
+		5F48FC84240433B900F195E2 /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */; };
 		5F8658C223FC5D4A00D3E997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658C123FC5D4A00D3E997 /* AppDelegate.swift */; };
 		5F8658C423FC5D4A00D3E997 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658C323FC5D4A00D3E997 /* SceneDelegate.swift */; };
 		5F8658C623FC5D4A00D3E997 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658C523FC5D4A00D3E997 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1FD06A0A7B9DC38B88626502 /* Pods-Tierodactyl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.debug.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.debug.xcconfig"; sourceTree = "<group>"; };
 		2F470EF998B73D8B3C4BF13F /* Pods-Tierodactyl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.release.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.release.xcconfig"; sourceTree = "<group>"; };
+		5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		5F8658BE23FC5D4A00D3E997 /* Tierodactyl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tierodactyl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8658C123FC5D4A00D3E997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8658C323FC5D4A00D3E997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				03F6280123FDDEB300EBBF94 /* LoginViewController.swift */,
 				03F627FF23FDDE8800EBBF94 /* SignUpViewController.swift */,
 				03F6280323FDDEDB00EBBF94 /* HomeScreenViewController.swift */,
+				5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */,
 				03F6280523FDDF6500EBBF94 /* TierViewController.swift */,
 				03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */,
 				5F8658C723FC5D4A00D3E997 /* Main.storyboard */,
@@ -355,6 +358,7 @@
 				5F8658C423FC5D4A00D3E997 /* SceneDelegate.swift in Sources */,
 				03F627FE23FDC5C300EBBF94 /* OriginalViewController.swift in Sources */,
 				03F6280023FDDE8800EBBF94 /* SignUpViewController.swift in Sources */,
+				5F48FC84240433B900F195E2 /* HomeScreenTableViewCell.swift in Sources */,
 				03F6280623FDDF6500EBBF94 /* TierViewController.swift in Sources */,
 				03F6280423FDDEDB00EBBF94 /* HomeScreenViewController.swift in Sources */,
 				03F6280823FDDF8F00EBBF94 /* SettingsViewController.swift in Sources */,
