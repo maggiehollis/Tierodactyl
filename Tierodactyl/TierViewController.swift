@@ -14,20 +14,27 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     var counter = 1
     var cells : [CellClass]? = []
     
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        if cells != nil{
+            cells?.append(CellClass())
+            self.tableView.reloadData()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0;//Choose your custom row height
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if cells != nil && indexPath.row%2==0{
+        if cells != nil && indexPath.row%2==0 && cells!.count>0{
             cells?[indexPath.row].backgroundColor = .systemGreen
             return cells![indexPath.row]
         }
-        else if cells != nil{
+        else if cells != nil && cells!.count>0{
             cells?[indexPath.row].backgroundColor = .green
             return cells![indexPath.row]
         }
-        return CellClass()
+        return UITableViewCell()
         
     
         //differentiate based off of what index path each cell is!
@@ -52,11 +59,11 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if cells != nil{
-            for _ in 1...10{
-                cells?.append(CellClass())
-            }
-        }
+//        if cells != nil{
+//            for _ in 1...10{
+//                cells?.append(CellClass())
+//            }
+//        }
         
     }
     
