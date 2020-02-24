@@ -10,8 +10,10 @@ import UIKit
 
 class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource{
     
+    //the collection view that will be in each tableview row
     var collectionView: UICollectionView!
     
+    //created individual cell for the collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath as IndexPath) as! UICollectionViewCell
@@ -28,6 +30,7 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     }
 
 
+    //creates the collectionview
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -42,33 +45,34 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         //how do i get the width? like when the screen is a different size?
         collectionView.backgroundColor = UIColor.clear
         
-      
-        
         self.addSubview(collectionView)
     }
 
+    //irrelevant
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
 
     // MARK: UICollectionViewDataSource
+    //also irrelevant
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
-
+    // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
+    //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
+    //irrelevant
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
     }
     
-    
-    
+    //also irrelevant
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
                 

@@ -159,7 +159,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem id="hRh-WT-heS">
+                                <navigationItem title="Your List" id="hRh-WT-heS">
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="7vQ-ET-axl">
                                         <connections>
                                             <action selector="add:" destination="f3d-Gt-KCw" id="DgA-He-BvX"/>
@@ -183,10 +183,11 @@
                             <outlet property="delegate" destination="f3d-Gt-KCw" id="ilI-vn-iUK"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="k19-jO-JO6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ep4-le-Vdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5107" y="-64"/>
+            <point key="canvasLocation" x="4471" y="37"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="qxz-7p-oQQ">
