@@ -14,6 +14,10 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     var counter = 1
     var cells : [CellClass]? = []
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70.0;//Choose your custom row height
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if cells != nil && indexPath.row%2==0{
             cells?[indexPath.row].backgroundColor = .systemGreen
@@ -42,12 +46,6 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    @IBAction func add(_ sender: Any) {
-           counter+=1
-        //numberOfSections(in: self as! UITableView)
-    }
-
     
     //if someone wants to add a view we add one to numberOfSections
         

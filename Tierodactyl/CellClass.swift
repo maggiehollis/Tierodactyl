@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource{
     
     var collectionView: UICollectionView!
     
@@ -17,9 +17,16 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath as IndexPath) as! UICollectionViewCell
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .black
+        if indexPath.row != 0{
+            cell.frame = CGRect(x: 10 + 60 * indexPath.row, y: 10, width: 50, height: 50)
+        }
+        else{
+            cell.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
+        }
 
         return cell
     }
+
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,8 +38,12 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.frame = CGRect(x: 0, y: 0, width: 414 , height: 70)
+        //how do i get the width? like when the screen is a different size?
         collectionView.backgroundColor = UIColor.clear
-
+        
+      
+        
         self.addSubview(collectionView)
     }
 
