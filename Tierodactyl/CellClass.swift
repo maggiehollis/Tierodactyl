@@ -8,7 +8,33 @@
 
 import UIKit
 
-class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource{
+class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let item = ""
+        let itemProvider = NSItemProvider(object: item as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+        return [dragItem]
+    }
+    
+    //var textArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+         var destinationIndexPath: IndexPath
+               if let indexPath = coordinator.destinationIndexPath{
+                   destinationIndexPath = indexPath
+               }
+               else{
+                   let row = collectionView.numberOfItems(inSection: 0)
+                   destinationIndexPath = IndexPath(item: row - 1, section: 0)
+               }
+               
+               if coordinator.proposal.operation == .move{
+                   self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+               }
+    }
+    
     
     //the collection view that will be in each tableview row
     var collectionView: UICollectionView!
@@ -26,8 +52,36 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         else{
             cell.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         }
+        
+       
 
         return cell
+    }
+    
+    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
+           if let item = coordinator.items.first,
+               let sourceIndexPath = item.sourceIndexPath{
+               
+               collectionView.performBatchUpdates({
+                
+                      // self.textArray.remove(at: sourceIndexPath.item)
+                      // self.textArray.insert(item.dragItem.localObject as! String, at: destinationIndexPath.item)
+                   
+                   collectionView.deleteItems(at: [sourceIndexPath])
+                   collectionView.insertItems(at: [destinationIndexPath])
+               }, completion: nil)
+               
+               coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+           }
+           
+       }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        if collectionView.hasActiveDrag{
+            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        
+        return UICollectionViewDropProposal(operation: .forbidden)
     }
 
 
@@ -46,6 +100,10 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         //how do i get the width? like when the screen is a different size?
         collectionView.backgroundColor = .white
         collectionView.allowsSelection = true
+        
+        collectionView.dragInteractionEnabled = true
+        collectionView.dragDelegate = self
+        collectionView.dropDelegate = self
         
         self.addSubview(collectionView)
     }
