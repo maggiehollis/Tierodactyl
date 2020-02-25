@@ -13,11 +13,8 @@ import FirebaseAuth
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var username: UITextField!
-    
     @IBOutlet weak var emailAddress: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var signupButtonO: UIButton!
     
     @IBAction func signupButton(_ sender: Any) {
@@ -25,6 +22,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
          guard let email = emailAddress.text else {return}
          guard let password = password.text else {return}
          guard let name = username.text else {return}
+        
          Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
              if let _ = user{
                   print("user created")

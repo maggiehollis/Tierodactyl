@@ -22,7 +22,8 @@ class LoginViewController: UIViewController {
            Auth.auth().signIn(withEmail: email, password: password) { (user, error)
                in
                if let _ = user {
-                   self.dismiss(animated: true, completion: nil)
+                    print("user created")
+                   self.dismiss(animated: false, completion: nil)
                }
                else {
                    print(error!.localizedDescription)
