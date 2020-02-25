@@ -9,7 +9,7 @@
 
 import UIKit
 
-class TierViewController: UITableViewController{//, UICollectionViewDelegate, UICollectionViewDataSource{
+class TierViewController: UITableViewController{
 
     //keeps track of how many rows to print out - needed because array is optional
     var counter = 0
@@ -25,13 +25,21 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
         }
     }
     
-    //when green section of cell is clicked a collection view cell will be added
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func addCells(row:Int){
         if cells != nil{
-            cells?[indexPath.row].counter+=1
-            cells?[indexPath.row].collectionView.reloadData()
+            cells?[row].counter+=1
+            cells?[row].collectionView.reloadData()
         }
     }
+    
+    //when green section of cell is clicked a collection view cell will be added
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if cells != nil{
+//            cells?[indexPath.row].counter+=1
+//            cells?[indexPath.row].collectionView.reloadData()
+//        }
+//    }
     
     //sets row height for each table view row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

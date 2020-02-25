@@ -10,6 +10,9 @@ import UIKit
 
 class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
     
+    @IBAction func add(_ sender: Any) {
+    }
+    
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let item = ""
         let itemProvider = NSItemProvider(object: item as NSString)
