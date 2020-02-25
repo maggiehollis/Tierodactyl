@@ -25,21 +25,14 @@ class TierViewController: UITableViewController{
         }
     }
     
-    func addCells(row:Int){
-        if cells != nil{
-            cells?[row].counter+=1
-            cells?[row].collectionView.reloadData()
-        }
-    }
-    
     //when green section of cell is clicked a collection view cell will be added
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if cells != nil{
-//            cells?[indexPath.row].counter+=1
-//            cells?[indexPath.row].collectionView.reloadData()
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if cells != nil{
+            cells?[indexPath.row].counter+=1
+            cells?[indexPath.row].collectionView.reloadData()
+        }
+    }
     
     //sets row height for each table view row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

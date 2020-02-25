@@ -10,18 +10,18 @@ import UIKit
 
 class addViewController: UIViewController {
 
-    var row = ""
+//DOESN'T WORK
     
-    @IBAction func text(_ sender: UITextField) {
-        guard let row1 = sender.text else {return}
-        row = row1
-    }
+    @IBOutlet weak var row: UITextField!
     
-    @IBAction func selectB(_ sender: UIButton) {
-        var num = Int(row)
-        ///ahhhhhh
-        
-    }
+    
+//    @IBAction func selectB(_ sender: UIButton) {
+//        guard var num = Int(row.text!) else { return }
+//        self.dismiss(animated: true, completion: nil)
+//       // TierViewController().addCells(row: num)
+//
+//
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
