@@ -36,6 +36,7 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
                if coordinator.proposal.operation == .move{
                    self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
                }
+        self.collectionView.reloadData()
     }
     
     

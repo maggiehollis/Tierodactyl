@@ -16,6 +16,7 @@ class TierViewController: UITableViewController{
     //array of optional cells, each one represents a row
     var cells : [CellClass]? = []
     
+    
     //this is called when you press the plus button, it adds another row
     @IBAction func add(_ sender: UIBarButtonItem) {
         if cells != nil{
@@ -69,6 +70,11 @@ class TierViewController: UITableViewController{
     //also has no current function
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
         
         tableView.allowsSelection = true
         
