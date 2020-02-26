@@ -10,6 +10,8 @@ import UIKit
 
 class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
     
+    var cellsForFrame : [UICollectionViewCell]? = []
+    
     @IBAction func add(_ sender: Any) {
     }
     
@@ -19,13 +21,15 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         return [dragItem]
+        
     }
     
     //var textArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
          var destinationIndexPath: IndexPath
-               if let indexPath = coordinator.destinationIndexPath{
+        
+            if let indexPath = coordinator.destinationIndexPath{
                    destinationIndexPath = indexPath
                }
                else{
@@ -36,7 +40,6 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
                if coordinator.proposal.operation == .move{
                    self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
                }
-        self.collectionView.reloadData()
     }
     
     
@@ -46,20 +49,24 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
     
     //created individual cell for the collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath as IndexPath) as! UICollectionViewCell
-        cell.layer.cornerRadius = 10
-        cell.backgroundColor = .black
-        if indexPath.row != 0{
-            cell.frame = CGRect(x: 10 + 60 * indexPath.row, y: 10, width: 50, height: 50)
-        }
-        else{
-            cell.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
-        }
         
-       
+       // if cellsForFrame != nil{
+        
+       // cellsForFrame?.append(cell)
+
+            cell.layer.cornerRadius = 10
+            cell.backgroundColor = .black
+            if indexPath.row != 0{
+                cell.frame = CGRect(x: /*(cellsForFrame?[indexPath.row].frame.maxX)!*/ 60*indexPath.row + 10, y: 10, width: 50, height: 50)
+            }
+            else{
+                cell.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
+            }
+       // }
 
         return cell
+
     }
     
     fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
@@ -110,6 +117,7 @@ class CellClass: UITableViewCell, UICollectionViewDelegate, UICollectionViewData
         collectionView.dropDelegate = self
         
         self.addSubview(collectionView)
+    
     }
 
     //irrelevant
