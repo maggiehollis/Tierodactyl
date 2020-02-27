@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3d-Gt-KCw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yTF-8z-TGr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -71,29 +71,23 @@
                                     <segue destination="aJo-vd-JXS" kind="show" id="SkG-5i-Nhw"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ptiero" translatesAutoresizingMaskIntoConstraints="NO" id="oXq-9f-BC6">
-                                <rect key="frame" x="87" y="188" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tier" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXq-9f-BC6">
+                                <rect key="frame" x="30" y="188" width="354" height="354"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="3h1-bk-Nmd"/>
-                                    <constraint firstAttribute="width" constant="240" id="LGV-Pp-Oyq"/>
+                                    <constraint firstAttribute="width" secondItem="oXq-9f-BC6" secondAttribute="height" multiplier="1:1" id="ma5-zo-gVR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pTIERodactyl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-8b-pPi">
-                                <rect key="frame" x="60" y="436" width="294" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="49"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.31372549019607843" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rMT-pa-Qkv" firstAttribute="leading" secondItem="2v2-0n-OuR" secondAttribute="leading" constant="107" id="Bya-mw-mgB"/>
                             <constraint firstItem="2v2-0n-OuR" firstAttribute="trailing" secondItem="rMT-pa-Qkv" secondAttribute="trailing" constant="107" id="EWN-KM-QNQ"/>
                             <constraint firstItem="oXq-9f-BC6" firstAttribute="top" secondItem="2v2-0n-OuR" secondAttribute="top" constant="100" id="HHk-CN-vwc"/>
+                            <constraint firstItem="oXq-9f-BC6" firstAttribute="leading" secondItem="sY6-B5-swD" secondAttribute="leading" constant="30" id="TBc-wF-l2R"/>
                             <constraint firstItem="2v2-0n-OuR" firstAttribute="bottom" secondItem="Rer-Q3-zQH" secondAttribute="bottom" constant="108" id="TIR-e6-8rM"/>
                             <constraint firstItem="Rer-Q3-zQH" firstAttribute="top" secondItem="rMT-pa-Qkv" secondAttribute="bottom" constant="28" id="TUo-gL-hjy"/>
                             <constraint firstItem="oXq-9f-BC6" firstAttribute="centerX" secondItem="2v2-0n-OuR" secondAttribute="centerX" id="UhC-ZV-bom"/>
+                            <constraint firstAttribute="trailing" secondItem="oXq-9f-BC6" secondAttribute="trailing" constant="30" id="jVT-DX-qGS"/>
                             <constraint firstItem="2v2-0n-OuR" firstAttribute="trailing" secondItem="Rer-Q3-zQH" secondAttribute="trailing" constant="107" id="m3p-gC-lwi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2v2-0n-OuR"/>
@@ -447,7 +441,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ptiero" width="280" height="280"/>
+        <image name="tier" width="1082" height="1082"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XhX-ke-hEe"/>
