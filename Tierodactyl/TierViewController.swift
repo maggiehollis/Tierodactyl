@@ -9,12 +9,65 @@
 
 import UIKit
 
-class TierViewController: UITableViewController{//, UICollectionViewDelegate, UICollectionViewDataSource{
-
+class TierViewController: UITableViewController, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        var destinationIndexPath: IndexPath
+        
+        if let indexPath = coordinator.destinationIndexPath{
+            destinationIndexPath = indexPath
+        }
+        else{
+            let row = collectionView.numberOfItems(inSection: 0)
+            destinationIndexPath = IndexPath(item: row - 1, section: 0)
+        }
+        
+        if coordinator.proposal.operation == .move{
+            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let item = ""
+        let itemProvider = NSItemProvider(object: item as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+        return [dragItem]
+    }
+    
+    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
+        if let item = coordinator.items.first,
+            let sourceIndexPath = item.sourceIndexPath{
+            
+            collectionView.performBatchUpdates({
+                
+                // self.textArray.remove(at: sourceIndexPath.item)
+                // self.textArray.insert(item.dragItem.localObject as! String, at: destinationIndexPath.item)
+                
+                collectionView.deleteItems(at: [sourceIndexPath])
+                collectionView.insertItems(at: [destinationIndexPath])
+            }, completion: nil)
+            
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        if collectionView.hasActiveDrag{
+            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        
+        return UICollectionViewDropProposal(operation: .forbidden)
+    }
+    
+    
     //keeps track of how many rows to print out - needed because array is optional
     var counter = 0
     //array of optional cells, each one represents a row
     var cells : [CellClass]? = []
+    
     
     //this is called when you press the plus button, it adds another row
     @IBAction func add(_ sender: UIBarButtonItem) {
@@ -26,6 +79,7 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     }
     
     //when green section of cell is clicked a collection view cell will be added
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if cells != nil{
             cells?[indexPath.row].counter+=1
@@ -64,14 +118,16 @@ class TierViewController: UITableViewController{//, UICollectionViewDelegate, UI
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-        
+    
     //also has no current function
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.allowsSelection = true
+        self.tableView.showsHorizontalScrollIndicator = true
+        
+        self.tableView.allowsSelection = true
         
     }
-        
+    
 }
 
