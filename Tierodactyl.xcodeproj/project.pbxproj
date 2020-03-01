@@ -24,6 +24,8 @@
 		5F8658CE23FC5D4C00D3E997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8658CC23FC5D4C00D3E997 /* LaunchScreen.storyboard */; };
 		5F8658D923FC5D4C00D3E997 /* TierodactylTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658D823FC5D4C00D3E997 /* TierodactylTests.swift */; };
 		5F8658E423FC5D4C00D3E997 /* TierodactylUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8658E323FC5D4C00D3E997 /* TierodactylUITests.swift */; };
+		5F9C1C352409BA5D002018D4 /* TierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C1C342409BA5D002018D4 /* TierTableViewCell.swift */; };
+		5F9C1C372409F155002018D4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C1C362409F155002018D4 /* CollectionViewCell.swift */; };
 		5F9F57E4240191DF003E73F2 /* CellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F57E3240191DF003E73F2 /* CellClass.swift */; };
 		62CBD902B4335259A2946999 /* Pods_Tierodactyl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129782A1CB0C273945C11C1 /* Pods_Tierodactyl.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		5F8658DF23FC5D4C00D3E997 /* TierodactylUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TierodactylUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8658E323FC5D4C00D3E997 /* TierodactylUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierodactylUITests.swift; sourceTree = "<group>"; };
 		5F8658E523FC5D4C00D3E997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F9C1C342409BA5D002018D4 /* TierTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierTableViewCell.swift; sourceTree = "<group>"; };
+		5F9C1C362409F155002018D4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5F9F57E3240191DF003E73F2 /* CellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellClass.swift; sourceTree = "<group>"; };
 		C129782A1CB0C273945C11C1 /* Pods_Tierodactyl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tierodactyl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +150,8 @@
 				03F6280523FDDF6500EBBF94 /* TierViewController.swift */,
 				5F49665C2405AD90003E70A0 /* addViewController.swift */,
 				5F48FC8524044A4C00F195E2 /* GoogleService-Info.plist */,
+				5F9C1C342409BA5D002018D4 /* TierTableViewCell.swift */,
+				5F9C1C362409F155002018D4 /* CollectionViewCell.swift */,
 				03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */,
 				5F8658C723FC5D4A00D3E997 /* Main.storyboard */,
 				5F9F57E3240191DF003E73F2 /* CellClass.swift */,
@@ -367,6 +373,8 @@
 				03F6280023FDDE8800EBBF94 /* SignUpViewController.swift in Sources */,
 				5F48FC84240433B900F195E2 /* HomeScreenTableViewCell.swift in Sources */,
 				03F6280623FDDF6500EBBF94 /* TierViewController.swift in Sources */,
+				5F9C1C352409BA5D002018D4 /* TierTableViewCell.swift in Sources */,
+				5F9C1C372409F155002018D4 /* CollectionViewCell.swift in Sources */,
 				03F6280423FDDEDB00EBBF94 /* HomeScreenViewController.swift in Sources */,
 				5F49665D2405AD90003E70A0 /* addViewController.swift in Sources */,
 				03F6280823FDDF8F00EBBF94 /* SettingsViewController.swift in Sources */,
