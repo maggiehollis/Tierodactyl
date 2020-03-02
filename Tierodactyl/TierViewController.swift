@@ -18,6 +18,9 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     var cells : [UICollectionView] = []
     var items = ["1","2","3","4"]
     
+    var collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout())
+    var source = IndexPath()
+    
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -36,6 +39,10 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
+        //this collectionview is what you are dragging from
+        collection = collectionView
+        source = indexPath
+        
         let item = ""
         let itemProvider = NSItemProvider(object: item as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
@@ -51,17 +58,18 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     
     fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
         
-        if let item = coordinator.items.first,
-            let sourceIndexPath = item.sourceIndexPath{
-            
-            collectionView.performBatchUpdates({
+        //this collectionview is the one where you are trying to drop it
+       
+        if let item = coordinator.items.first {
+        
+           collectionView.performBatchUpdates({
                 collectionView.insertItems(at: [destinationIndexPath])
-            }, completion: nil)
+           }, completion: nil)
             
             
-            //        cells[oldRow].performBatchUpdates({
-            //            cells[oldRow].deleteItems(at: [sourceIndexPath])
-            //       }, completion: nil)
+//            collection.performBatchUpdates({
+//                collection.deleteItems(at: [source])
+//            }, completion: nil)
             
             
             //removed item from collectionview that coordinator relates to so doesn't work
@@ -70,14 +78,17 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             
         }
         
-        collectionView.reloadData()
-        //cells[oldRow].reloadData()
+//        collectionView.reloadData()
+//        collection.reloadData()
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         var destinationIndexPath: IndexPath
+        
+        //this is called when you drop the thingy
+        
         if let indexPath = coordinator.destinationIndexPath{
             destinationIndexPath = indexPath
         }
@@ -127,7 +138,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
+    
         cell = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         cell.register(CollectionViewCell.self, forCellWithReuseIdentifier: "ViewCell")
         cell.delegate = self
