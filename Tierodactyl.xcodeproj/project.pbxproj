@@ -47,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03C21645240D903400B2BFDE /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HomeScreen.storyboard; path = "/Users/s013713/Documents/Comp sci/Tierodactyl/Tierodactyl/HomeScreen.storyboard"; sourceTree = "<absolute>"; };
+		03C21646240D905E00B2BFDE /* TierView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TierView.storyboard; path = "/Users/s013713/Documents/Comp sci/Tierodactyl/Tierodactyl/TierView.storyboard"; sourceTree = "<absolute>"; };
 		03F627FD23FDC5C300EBBF94 /* OriginalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalViewController.swift; sourceTree = "<group>"; };
 		03F627FF23FDDE8800EBBF94 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		03F6280123FDDEB300EBBF94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,8 @@
 				5F9C1C342409BA5D002018D4 /* TierTableViewCell.swift */,
 				5F9C1C362409F155002018D4 /* CollectionViewCell.swift */,
 				03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */,
+				03C21646240D905E00B2BFDE /* TierView.storyboard */,
+				03C21645240D903400B2BFDE /* HomeScreen.storyboard */,
 				5F8658C723FC5D4A00D3E997 /* Main.storyboard */,
 				5F8658CA23FC5D4C00D3E997 /* Assets.xcassets */,
 				5F8658CC23FC5D4C00D3E997 /* LaunchScreen.storyboard */,
