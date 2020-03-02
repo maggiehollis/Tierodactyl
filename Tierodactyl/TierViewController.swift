@@ -9,8 +9,15 @@
 
 import UIKit
 
-class TierViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate, UITableViewDropDelegate{
-   
+class TierViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
+    
+    //keeps track of how many rows to print out - needed because array is optional
+    var counter = 0
+    //array of optional cells, each one represents a row
+    
+    var cells : [UICollectionView] = []
+    var items = ["1","2","3","4"]
+    
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -22,13 +29,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .black
-        
-        if indexPath.row != 0{
-            cell.frame = CGRect(x: /*(cellsForFrame?[indexPath.row].frame.maxX)!*/ 60*indexPath.row + 10, y: 10, width: 50, height: 50)
-        }
-        else{
-            cell.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
-        }
         
         return cell
         
@@ -45,38 +45,35 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-      
-            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        
+        return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
     
-    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView, newRow: Int){
-                
-        //collectionView.hasActiveDrag = true
-       
+    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
         
-        if let item = coordinator.items.first{
-           // let sourceIndexPath = item.sourceIndexPath{
+        if let item = coordinator.items.first,
+            let sourceIndexPath = item.sourceIndexPath{
             
-        collectionView.performBatchUpdates({
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: [destinationIndexPath])
+            }, completion: nil)
             
-          //  collectionView.deleteItems(at: [sourceIndexPath])
-        }, completion: nil)
-                
-               
-        //cells[newRow].performBatchUpdates({
-                         
-            cells[newRow].insertItems(at: [destinationIndexPath])
-          
-       // }, completion: nil)
-             
+            
+            //        cells[oldRow].performBatchUpdates({
+            //            cells[oldRow].deleteItems(at: [sourceIndexPath])
+            //       }, completion: nil)
+            
+            
+            //removed item from collectionview that coordinator relates to so doesn't work
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
             
-           
+            
         }
         
-       collectionView.reloadData()
-       cells[nrow].reloadData()
+        collectionView.reloadData()
+        //cells[oldRow].reloadData()
     }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
@@ -89,53 +86,33 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             destinationIndexPath = IndexPath(item: row - 1, section: 0)
         }
         
-       // if coordinator.proposal.operation == .move{
-            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView, newRow: nrow)
-       // }
-    }
-    
-    var nrow = 0
-   
-       func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        if let row = coordinator.destinationIndexPath?.row{
-            nrow = row
-        
-            //coordinator.drop(coordinator.items.first!.dragItem, toRowAt: coordinator.destinationIndexPath!)
+        if coordinator.proposal.operation == .move{
+            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
         }
-       }
-    
-   
-       
-       
-    //keeps track of how many rows to print out - needed because array is optional
-    var counter = 0
-    //array of optional cells, each one represents a row
-    
-    var cells : [UICollectionView] = []
-    var items = ["1","2","3","4"]
-    
+    }
+
     //this is called when you press the plus button, it adds another row
-//    @IBAction func add(_ sender: UIBarButtonItem) {
-//
-//        cells.append(UICollectionView())
-//        //THIS IS HOW YOU RELOAD SOMETHING
-//        self.tableView.reloadData()
-//
-//    }
+    //    @IBAction func add(_ sender: UIBarButtonItem) {
+    //
+    //        cells.append(UICollectionView())
+    //        //THIS IS HOW YOU RELOAD SOMETHING
+    //        self.tableView.reloadData()
+    //
+    //    }
     
     //when green section of cell is clicked a collection view cell will be added
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if cells != nil{
-//            selected = indexPath.row
-//            // cells[indexPath.row].counter+=1
-//            cells[indexPath.row].dragInteractionEnabled = true
-//            //            cells?[indexPath.row].collectionView.dragDelegate = self
-//            //            cells?[indexPath.row].collectionView.dropDelegate = self
-//
-//            cells[indexPath.row].reloadData()
-//        }
-//    }
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        if cells != nil{
+    //            selected = indexPath.row
+    //            // cells[indexPath.row].counter+=1
+    //            cells[indexPath.row].dragInteractionEnabled = true
+    //            //            cells?[indexPath.row].collectionView.dragDelegate = self
+    //            //            cells?[indexPath.row].collectionView.dropDelegate = self
+    //
+    //            cells[indexPath.row].reloadData()
+    //       }
+    //   }
     
     //sets row height for each table view row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -147,7 +124,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         //basically makes even rows green and odd system green
         
         var cell = cells[indexPath.row]
-    
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -204,3 +181,5 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     }
     
 }
+
+
