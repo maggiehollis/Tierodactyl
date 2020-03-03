@@ -15,16 +15,22 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     var counter = 0
     //array of optional cells, each one represents a row
     
-    var cells : [UICollectionView] = []
+    var cells : [IndividualCollectionView] = []
     var items = ["1","2","3","4"]
     
-    var collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout())
+    var collection = IndividualCollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout())
+        
+//        UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout()) as! IndividualCollectionView
     var source = IndexPath()
     
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return  getNum(collectionView as! IndividualCollectionView) //need separate value for each collectionview
+    }
+    
+    func getNum(_ collectionView: IndividualCollectionView) -> Int{
+        return collectionView.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,7 +46,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
         //this collectionview is what you are dragging from
-        collection = collectionView
+        collection = collectionView as! IndividualCollectionView
         source = indexPath
         
         let item = ""
@@ -56,20 +62,28 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
     
-    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView){
+    fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: IndividualCollectionView){
         
         //this collectionview is the one where you are trying to drop it
        
-        if let item = coordinator.items.first {
         
-           collectionView.performBatchUpdates({
+        
+        if let item = coordinator.items.first{
+            
+            collectionView.reloadData()
+            collection.reloadData()
+            
+            collectionView.performBatchUpdates({
                 collectionView.insertItems(at: [destinationIndexPath])
-           }, completion: nil)
+                collectionView.count+=1
+            }, completion: nil)
             
             
-//            collection.performBatchUpdates({
-//                collection.deleteItems(at: [source])
-//            }, completion: nil)
+            collection.performBatchUpdates({
+                collection.deleteItems(at: [source])
+                collection.count-=1
+            }, completion: nil)
+            
             
             
             //removed item from collectionview that coordinator relates to so doesn't work
@@ -78,8 +92,8 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             
         }
         
-//        collectionView.reloadData()
-//        collection.reloadData()
+        collectionView.reloadData()
+        collection.reloadData()
     }
     
     
@@ -98,7 +112,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         }
         
         if coordinator.proposal.operation == .move{
-            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+            self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView as! IndividualCollectionView)
         }
     }
 
@@ -139,7 +153,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
     
-        cell = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        cell = IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout)
         cell.register(CollectionViewCell.self, forCellWithReuseIdentifier: "ViewCell")
         cell.delegate = self
         cell.dataSource = self
@@ -180,7 +194,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        var filler = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        var filler = IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout)
         
         
         for i in 0...9{

@@ -13,6 +13,7 @@
 		03F6280423FDDEDB00EBBF94 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280323FDDEDB00EBBF94 /* HomeScreenViewController.swift */; };
 		03F6280623FDDF6500EBBF94 /* TierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280523FDDF6500EBBF94 /* TierViewController.swift */; };
 		03F6280823FDDF8F00EBBF94 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */; };
+		5F2038F9240E8897007F6A61 /* IndividualCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2038F8240E8897007F6A61 /* IndividualCollectionView.swift */; };
 		5F48FC84240433B900F195E2 /* HomeScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */; };
 		5F48FC8624044A4C00F195E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F48FC8524044A4C00F195E2 /* GoogleService-Info.plist */; };
 		5F49665D2405AD90003E70A0 /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F49665C2405AD90003E70A0 /* addViewController.swift */; };
@@ -55,6 +56,7 @@
 		03F6280723FDDF8F00EBBF94 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1FD06A0A7B9DC38B88626502 /* Pods-Tierodactyl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.debug.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.debug.xcconfig"; sourceTree = "<group>"; };
 		2F470EF998B73D8B3C4BF13F /* Pods-Tierodactyl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tierodactyl.release.xcconfig"; path = "Target Support Files/Pods-Tierodactyl/Pods-Tierodactyl.release.xcconfig"; sourceTree = "<group>"; };
+		5F2038F8240E8897007F6A61 /* IndividualCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCollectionView.swift; sourceTree = "<group>"; };
 		5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewCell.swift; sourceTree = "<group>"; };
 		5F48FC8524044A4C00F195E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F49665C2405AD90003E70A0 /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				03F6280323FDDEDB00EBBF94 /* HomeScreenViewController.swift */,
 				5F48FC83240433B900F195E2 /* HomeScreenTableViewCell.swift */,
 				03F6280523FDDF6500EBBF94 /* TierViewController.swift */,
+				5F2038F8240E8897007F6A61 /* IndividualCollectionView.swift */,
 				5F49665C2405AD90003E70A0 /* addViewController.swift */,
 				5F48FC8524044A4C00F195E2 /* GoogleService-Info.plist */,
 				5F9C1C342409BA5D002018D4 /* TierTableViewCell.swift */,
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F6280223FDDEB300EBBF94 /* LoginViewController.swift in Sources */,
+				5F2038F9240E8897007F6A61 /* IndividualCollectionView.swift in Sources */,
 				5F8658C623FC5D4A00D3E997 /* ViewController.swift in Sources */,
 				5F8658C223FC5D4A00D3E997 /* AppDelegate.swift in Sources */,
 				5F8658C423FC5D4A00D3E997 /* SceneDelegate.swift in Sources */,
