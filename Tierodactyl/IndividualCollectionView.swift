@@ -10,7 +10,7 @@ import UIKit
 
 class IndividualCollectionView: UICollectionView {
 
-    var count = 2
+    var count = 0
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

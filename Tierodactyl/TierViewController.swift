@@ -6,7 +6,6 @@
 //  Copyright © 2020 Margaret Hollis (student LM). All rights reserved.
 //
 
-
 import UIKit
 
 class TierViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDragDelegate, UICollectionViewDropDelegate{
@@ -16,23 +15,20 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     //array of optional cells, each one represents a row
     
     var cells : [IndividualCollectionView] = []
-    var items = ["1","2","3","4"]
+    //var items = ["1","2","3","4"]
     
     var collection = IndividualCollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout())
-        
-//        UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout()) as! IndividualCollectionView
+    
     var source = IndexPath()
     
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  getNum(collectionView as! IndividualCollectionView) //need separate value for each collectionview
+       var collection = collectionView as! IndividualCollectionView
+        
+        return  collection.count //need separate value for each collectionview
     }
-    
-    func getNum(_ collectionView: IndividualCollectionView) -> Int{
-        return collectionView.count
-    }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
         
@@ -64,10 +60,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     
     fileprivate func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: IndividualCollectionView){
         
-        //this collectionview is the one where you are trying to drop it
-       
-        
-        
         if let item = coordinator.items.first{
             
             collectionView.reloadData()
@@ -85,8 +77,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             }, completion: nil)
             
             
-            
-            //removed item from collectionview that coordinator relates to so doesn't work
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
             
             
@@ -101,7 +91,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         var destinationIndexPath: IndexPath
         
-        //this is called when you drop the thingy
         
         if let indexPath = coordinator.destinationIndexPath{
             destinationIndexPath = indexPath
@@ -115,29 +104,27 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             self.reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView as! IndividualCollectionView)
         }
     }
-
+    
     //this is called when you press the plus button, it adds another row
-    //    @IBAction func add(_ sender: UIBarButtonItem) {
-    //
-    //        cells.append(UICollectionView())
-    //        //THIS IS HOW YOU RELOAD SOMETHING
-    //        self.tableView.reloadData()
-    //
-    //    }
+        @IBAction func add(_ sender: UIBarButtonItem) {
+            counter+=1
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            
+            cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout))
+            
+            // cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout()))
+            self.tableView.reloadData()
+    
+        }
     
     //when green section of cell is clicked a collection view cell will be added
     
-    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        if cells != nil{
-    //            selected = indexPath.row
-    //            // cells[indexPath.row].counter+=1
-    //            cells[indexPath.row].dragInteractionEnabled = true
-    //            //            cells?[indexPath.row].collectionView.dragDelegate = self
-    //            //            cells?[indexPath.row].collectionView.dropDelegate = self
-    //
-    //            cells[indexPath.row].reloadData()
-    //       }
-    //   }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cells[indexPath.row].count+=1
+        cells[indexPath.row].reloadData()
+        tableView.reloadData()
+    }
     
     //sets row height for each table view row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -148,37 +135,39 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //basically makes even rows green and odd system green
         
-        var cell = cells[indexPath.row]
-        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-    
-        cell = IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout)
-        cell.register(CollectionViewCell.self, forCellWithReuseIdentifier: "ViewCell")
-        cell.delegate = self
-        cell.dataSource = self
-        cell.frame = CGRect(x: 0, y: 0, width: 314 , height: 70)
-        cell.backgroundColor = .white
-        cell.allowsSelection = true
-        cell.dragInteractionEnabled = true
-        cell.dragDelegate = self
-        cell.dropDelegate = self
-        
-        var table = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as! IndexPath) as! TierTableViewCell
-        table.addSubview(cell)
-        table.backgroundColor = .systemGray
-        table.setProps(textt: "hi")
-        
-        return table
         
         
+        if cells.count > 0{
+            var cell = cells.last
+            cell?.register(CollectionViewCell.self, forCellWithReuseIdentifier: "ViewCell")
+            cell!.delegate = self
+            cell!.dataSource = self
+            cell!.frame = CGRect(x: 0, y: 0, width: 314 , height: 70)
+            cell!.backgroundColor = .white
+            cell!.allowsSelection = true
+            cell!.dragInteractionEnabled = true
+            cell!.dragDelegate = self
+            cell!.dropDelegate = self
+       
+        
+            var table = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as! IndexPath) as! TierTableViewCell
+      
+            table.backgroundColor = .systemGray
+            table.addSubview(cell!)
+            table.setProps(textt: "hi")
+            return table
+        }
+        
+        return tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as! IndexPath) as! TierTableViewCell
         
     }
     
     //when the table view is reloaed this sets the number of rows there will be
     //counter keeps track of the number of rows in the array of cells and returns it
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return counter
     }
     
     //this is completley irrelevant, just keep it at one
@@ -190,18 +179,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     //also has no current function
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        var filler = IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout)
-        
-        
-        for i in 0...9{
-            cells.append(filler)
-        }
-        
-        self.tableView.allowsSelection = true
+
         
     }
     
