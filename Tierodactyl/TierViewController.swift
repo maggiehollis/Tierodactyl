@@ -179,6 +179,8 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.allowsSelection=true
+        
         
     }
     
