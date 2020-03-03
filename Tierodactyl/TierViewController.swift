@@ -24,11 +24,11 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     // number of cells in a collectionview, this will be made similar to corresponding class in TierVC
     //when we create funcationality to add elements to each row
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       var collection = collectionView as! IndividualCollectionView
+        var collection = collectionView as! IndividualCollectionView
         
         return  collection.count //need separate value for each collectionview
     }
- 
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
         
@@ -50,7 +50,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
         return [dragItem]
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
@@ -106,17 +105,17 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     }
     
     //this is called when you press the plus button, it adds another row
-        @IBAction func add(_ sender: UIBarButtonItem) {
-            counter+=1
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
-            
-            cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout))
-            
-            // cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout()))
-            self.tableView.reloadData()
-    
-        }
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        counter+=1
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: layout))
+        
+        // cells.append(IndividualCollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout()))
+        self.tableView.reloadData()
+        
+    }
     
     //when green section of cell is clicked a collection view cell will be added
     
@@ -150,10 +149,10 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             cell!.dragInteractionEnabled = true
             cell!.dragDelegate = self
             cell!.dropDelegate = self
-       
-        
+            
+            
             var table = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as! IndexPath) as! TierTableViewCell
-      
+            
             table.backgroundColor = .systemGray
             table.addSubview(cell!)
             table.setProps(textt: "hi")
@@ -179,7 +178,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     //also has no current function
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
