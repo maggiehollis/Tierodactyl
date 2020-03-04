@@ -47,24 +47,23 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func setUpTable(){
         view.addSubview(tbView);
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tbView.translatesAutoresizingMaskIntoConstraints = false
+        tbView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tbView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tbView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tbView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
         view.backgroundColor = .black
         safeArea = view.layoutMarginsGuide
         
         //var tableView = UITableView()
-               tableView.delegate = self
-               tableView.dataSource = self
+               tbView.delegate = self
+               tbView.dataSource = self
     
         //tableView.register(HomeScreenTableViewCell(), forCellReuseIdentifier: "MyCell")
         
-        view.addSubview(tableView);
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+   //     view.addSubview(tableView)
+        tbView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
     
