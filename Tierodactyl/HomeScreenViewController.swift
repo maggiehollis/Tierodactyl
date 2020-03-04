@@ -48,7 +48,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     func setUpTable(){
         view.addSubview(tbView);
         tbView.translatesAutoresizingMaskIntoConstraints = false
-        tbView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        tbView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tbView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tbView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tbView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
