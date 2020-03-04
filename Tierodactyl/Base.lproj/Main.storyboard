@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -124,7 +125,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signupButton:" destination="aJo-vd-JXS" eventType="touchUpInside" id="yn4-t0-REv"/>
-                                    <segue destination="joE-TL-jQ4" kind="show" id="M9u-Hc-8UJ"/>
+                                    <segue destination="eZK-EQ-H3P" kind="show" id="VAA-D1-fiu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WgV-5c-ISL">
@@ -273,7 +274,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButton:" destination="xgL-Q2-ND2" eventType="touchUpInside" id="89e-6P-pHi"/>
-                                    <segue destination="joE-TL-jQ4" kind="show" id="XhX-ke-hEe"/>
+                                    <segue destination="eZK-EQ-H3P" kind="show" id="s8F-PC-VlX"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rER-wF-SUa">
@@ -347,13 +348,88 @@
             </objects>
             <point key="canvasLocation" x="3690" y="-917"/>
         </scene>
-        <!--HomeScreen-->
-        <scene sceneID="MCh-Ge-pLc">
+        <!--Tier View Controller-->
+        <scene sceneID="f4C-dW-Y5x">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeScreen" id="joE-TL-jQ4" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="bmD-2n-mf3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l2f-rA-xtB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tableViewController id="VD0-C8-Quq" customClass="TierViewController" customModule="Tierodactyl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Efy-yl-ejh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.31372549020000001" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Lsg-Va-LVD">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Your List" id="U0t-IC-S5Y"/>
+                            </items>
+                        </navigationBar>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="995-WY-OEo">
+                            <rect key="frame" x="0.0" y="228" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add Row"/>
+                            <connections>
+                                <action selector="add:" destination="VD0-C8-Quq" eventType="touchUpInside" id="v2r-Ig-khd"/>
+                            </connections>
+                        </button>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="128" id="nlC-tL-tdi" userLabel="Cell" customClass="TierTableViewCell" customModule="Tierodactyl" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nlC-tL-tdi" id="ne4-Gc-525" customClass="CellClass" customModule="Tierodactyl" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e5R-CL-zss">
+                                            <rect key="frame" x="87" y="0.0" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lRl-PG-IFy">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ViewCell" id="YMH-x2-se3" customClass="CollectionViewCell" customModule="Tierodactyl" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="p2w-m5-ene">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </collectionViewCellContentView>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VD0-C8-Quq" id="9A1-8m-d3x"/>
+                            <outlet property="delegate" destination="VD0-C8-Quq" id="29l-ny-r2P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="kiA-jD-rYA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mg8-5P-k52" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4471" y="37"/>
+        </scene>
+        <!--Your Lists-->
+        <scene sceneID="UUN-Tu-jnZ">
+            <objects>
+                <viewController id="eZK-EQ-H3P" customClass="HomeScreenViewController" customModule="Tierodactyl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bl5-5R-Mld">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.31372549020000001" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="CNC-kd-9lN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Lists" id="YmQ-sE-fvK">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="nie-GH-207"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cGb-Pw-Gp6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3604" y="37"/>
         </scene>
@@ -362,6 +438,6 @@
         <image name="tier" width="1082" height="1082"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XhX-ke-hEe"/>
+        <segue reference="VAA-D1-fiu"/>
     </inferredMetricsTieBreakers>
 </document>

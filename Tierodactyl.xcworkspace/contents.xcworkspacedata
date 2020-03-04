@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/s013713/Documents/Comp sci/Tierodactyl/Tierodactyl/TierView.storyboard">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/s013713/Documents/Comp sci/Tierodactyl/Tierodactyl/HomeScreen.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Tierodactyl.xcodeproj">
    </FileRef>
    <FileRef
