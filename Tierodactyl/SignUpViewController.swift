@@ -57,7 +57,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        username.becomeFirstResponder()
+        emailAddress.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
 
