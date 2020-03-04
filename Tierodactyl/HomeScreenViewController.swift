@@ -62,7 +62,7 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     
         //tableView.register(HomeScreenTableViewCell(), forCellReuseIdentifier: "MyCell")
         
-        view.addSubview(tableView);
+   //     view.addSubview(tableView)
         tbView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
