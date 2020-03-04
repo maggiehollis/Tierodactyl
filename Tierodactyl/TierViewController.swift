@@ -15,8 +15,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
     //array of optional cells, each one represents a row
     
     var cells : [IndividualCollectionView] = []
-    //var items = ["1","2","3","4"]
-    
+   
     var collection = IndividualCollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: UICollectionViewFlowLayout())
     
     var source = IndexPath()
@@ -33,7 +32,14 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
         
         cell.layer.cornerRadius = 10
-        cell.backgroundColor = .black
+        cell.backgroundColor = .green
+        cell.setProps()
+        cell.text.text = "YES"
+        cell.addSubview(cell.text)
+        cell.text.translatesAutoresizingMaskIntoConstraints = false
+        cell.text.heightAnchor.constraint(equalToConstant: cell.frame.height).isActive = true
+        cell.text.widthAnchor.constraint(equalToConstant: cell.frame.width).isActive = true
+        
         
         return cell
         
@@ -155,7 +161,6 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
             
             table.backgroundColor = .systemGray
             table.addSubview(cell!)
-            table.setProps(textt: "hi")
             return table
         }
         

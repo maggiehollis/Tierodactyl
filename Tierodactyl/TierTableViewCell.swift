@@ -10,10 +10,5 @@ import UIKit
 
 class TierTableViewCell: UITableViewCell {
 
-    var textt = ""
-    
-    func setProps(textt: String){
-        self.textt = textt
-    }
 
 }

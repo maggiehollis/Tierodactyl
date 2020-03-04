@@ -10,8 +10,12 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
-    func setProps(){
-        backgroundColor = .black
-    }
+    var text = UILabel()
+    
+   func setProps(){
+       text.font = UIFont(name: "Times New Roman", size: 20)
+        text.textColor = .black
+        
+   }
     
 }
