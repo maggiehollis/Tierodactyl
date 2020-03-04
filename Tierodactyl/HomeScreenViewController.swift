@@ -9,34 +9,37 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-   
+    
     //all the lists
-    let tbView = UITableView();
+    let tbView = UITableView()
     var lists : [UITableViewCell]? = []
     var stuff = ["List1"]
     
-
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard var count = lists?.count else {return 1}
-//        return count
-//        return 1
-//    }
+    let button = UIButton()
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if lists != nil{
-//            return lists![indexPath.row]
-//        }
-        
-//        var cell = HomeScreenTableViewCell()
-//
-//        cell.textLabel?.text = "List 1"
-//        return cell
-//    }
+    
+    
+    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        guard var count = lists?.count else {return 1}
+    //        return count
+    //        return 1
+    //    }
+    
+    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        if lists != nil{
+    //            return lists![indexPath.row]
+    //        }
+    
+    //        var cell = HomeScreenTableViewCell()
+    //
+    //        cell.textLabel?.text = "List 1"
+    //        return cell
+    //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if lists != nil{
-//            lists![indexPath.row]
-//        }
+        //        if lists != nil{
+        //            lists![indexPath.row]
+        //        }
     }
     
     
@@ -57,44 +60,58 @@ class HomeScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         safeArea = view.layoutMarginsGuide
         
         //var tableView = UITableView()
-               tbView.delegate = self
-               tbView.dataSource = self
-    
+        tbView.delegate = self
+        tbView.dataSource = self
+        
         //tableView.register(HomeScreenTableViewCell(), forCellReuseIdentifier: "MyCell")
         
-        view.addSubview(tableView);
+        //        view.addSubview(tbView);
         tbView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
     
-      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stuff.count
-      }
     
-      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stuff.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = stuff[indexPath.row]
+        
         return cell
-      }
-    
+    }
+    //    cell.accessoryType = .detailDisclosureButton
+    //
+    //    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    //        doSomethingWithItem(indexPath.row)
+    //    }
     
     override func viewDidLoad() {
         
-            setUpTable()
+        setUpTable()
         stuff.append("List2")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let cell = sender as? UITableViewCell{
+            if let tierViewController = segue.destination as? TierViewController{
+                tierViewController.title = cell.textLabel?.text
+            }
+        }
     }
-    */
-
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
