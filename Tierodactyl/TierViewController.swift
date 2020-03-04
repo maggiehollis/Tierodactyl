@@ -34,7 +34,7 @@ class TierViewController: UITableViewController, UICollectionViewDelegate, UICol
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .green
         cell.setProps()
-        cell.text.text = "YES"
+        cell.text.text = String(indexPath.row+1)
         cell.addSubview(cell.text)
         cell.text.translatesAutoresizingMaskIntoConstraints = false
         cell.text.heightAnchor.constraint(equalToConstant: cell.frame.height).isActive = true
